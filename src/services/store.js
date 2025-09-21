@@ -1,15 +1,12 @@
 import { loadFromStorage, saveToStorage } from "../utils/localStorage";
 
-export function getProducts() {
+export async  function getProducts() {
   const products = loadFromStorage("products");
   if (products !== null) {
     return Promise.resolve(products);
   }
-
-  return fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((data) => {
-      saveToStorage("products", data);
-      return data;
-    });
+  const response = await fetch("https://fakestoreapi.com/products");
+  const data = await response.json();
+  saveToStorage("products", data);
+  return data;
 }

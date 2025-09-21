@@ -4,8 +4,9 @@ import { getProducts } from "../services/store";
 const StoreItems = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getProducts().then((data) => setProducts(data));
+  useEffect(async () => {
+    const products = await getProducts();
+    setProducts(products);
   }, []);
 
   console.log(products);
