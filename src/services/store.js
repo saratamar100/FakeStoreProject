@@ -1,3 +1,4 @@
 export function getProducts() {
-  return [{ title: "product1" }];
+  return fetch("https://fakestoreapi.com/products")
+    .then(res => res.json());
 }
