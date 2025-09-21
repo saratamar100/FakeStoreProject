@@ -1,9 +1,10 @@
 import './App.css';
+import StoreItems from './comps/storeItems';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello, World!</h1>
+      <StoreItems />
     </div>
   );
 }
